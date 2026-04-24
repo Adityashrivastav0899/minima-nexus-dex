@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minima Nexus DEX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Minima Nexus DEX</h1>
+      <p>MiniMask powered peer-to-peer trading portal</p>
+    </div>
+    <button id="connectBtn">Connect MiniMask</button>
+  </header>
+
+  <main class="grid">
+    <section class="card wallet">
+      <h2>Wallet</h2>
+      <p>Status: <span id="walletStatus">Not connected</span></p>
+      <p>Address: <span id="walletAddress">—</span></p>
+      <button id="refreshBtn">Refresh Balances</button>
+      <div id="balances"></div>
+    </section>
+
+    <section class="card trade">
+      <h2>Trade</h2>
+
+      <label>Pair</label>
+      <select id="pairSelect">
+        <option value="MINIMA/USDT">MINIMA / USDT</option>
+      </select>
+
+      <label>Side</label>
+      <select id="side">
+        <option value="BUY">Buy</option>
+        <option value="SELL">Sell</option>
+      </select>
+
+      <label>Price</label>
+      <input id="price" type="number" step="0.00000001" placeholder="Price" />
+
+      <label>Amount</label>
+      <input id="amount" type="number" step="0.00000001" placeholder="Amount" />
+
+      <button id="placeOrderBtn">Place Real Order</button>
+      <button id="cancelOrderBtn">Cancel Selected Order</button>
+
+      <p id="txStatus">No transaction yet</p>
+    </section>
+
+    <section class="card orderbook">
+      <h2>Live Order Book</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Side</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Trader</th>
+          </tr>
+        </thead>
+        <tbody id="orderBookBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card history">
+      <h2>Trade History</h2>
+      <div id="tradeHistory"></div>
+    </section>
+
+    <section class="card chat">
+      <h2>P2P Trade Chat</h2>
+      <div id="chatBox"></div>
+      <input id="chatInput" placeholder="Message traders..." />
+      <button id="sendChatBtn">Send</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
